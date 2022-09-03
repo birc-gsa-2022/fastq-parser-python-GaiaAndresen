@@ -10,8 +10,10 @@ def main():
     )
     args = argparser.parse_args()
 
-    print(f"Now I need to process the records in {args.fastq}")
-
+    #print(f"Now I need to process the records in {args.fastq}")
+    lines = args.fastq.readlines()
+    for line in lines[1:len(lines):2]:
+        print(line.replace("\n", ""))
 
 if __name__ == '__main__':
     main()
